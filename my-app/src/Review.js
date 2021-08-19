@@ -5,7 +5,12 @@ export default class Reivew extends React.Component {
   
   state = {
     classname: '',
-    reviews: []
+    reviews: [{ "millis": "1000", 
+    "stamp": "1273010254", 
+    "datetime": "2010/5/4 21:57:34", 
+    "light": "333", 
+    "temp": "78.32", 
+    "vcc": "3.54" }, ]
   }
   
    //update state of classname 

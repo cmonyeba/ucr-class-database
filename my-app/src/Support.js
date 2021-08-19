@@ -1,10 +1,12 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 
+
+
 export default function Support() {
     return (
         <section>
-                <div className="w-screen h-auto p-64 bg-gray-200">
+                <div className="w-screen h-auto p-64 bg-gray-200 bg">
                 <div className='h-64 w-auto bg-gray-100 flex items-center justify-center'>
                     
                     <div>
