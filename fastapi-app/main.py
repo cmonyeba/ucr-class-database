@@ -20,7 +20,9 @@ engine = sqlalchemy.create_engine(
 
 app = FastAPI()
 
-origins= ['http://localhost:3000']
+origins= ['http://localhost:3000',
+          'https://ucr-class-database-80twkfjyh-cmonyeba.vercel.app',
+          'https://ucr-class-database-80twkfjyh-cmonyeba.vercel.app/category/courses']
 
 app.add_middleware(
     CORSMiddleware,

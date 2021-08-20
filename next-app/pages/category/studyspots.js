@@ -21,7 +21,7 @@ const studyspots = () => {
     
     const requestInput = () => {
         console.log(name);
-        axios.get(`http://127.0.0.1:8000/category/studyspots/${name}`)
+        axios.get(`https://reviewucr.herokuapp.com/category/studyspots/${name}`)
         .then((result) => {
             console.log(result.data);
             setData(result.data);

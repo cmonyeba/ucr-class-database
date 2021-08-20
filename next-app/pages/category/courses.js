@@ -22,7 +22,7 @@ const courses = () => {
     
     const requestInput = () => {
         console.log(name);
-        axios.get(`http://127.0.0.1:8000/category/courses/${name}`)
+        axios.get(`https://reviewucr.herokuapp.com/category/courses/${name}`)
         .then((result) => {
             console.log(result.data);
             setData(result.data);
