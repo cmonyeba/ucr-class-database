@@ -83,7 +83,7 @@ const courses = () => {
     return (
         <div className="flex flex-wrap items-center justify-center min-h-screen py-2">
             <Head>
-            <title>Review UCR courses</title>
+            <title>UCR Course Reviews</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="flex flex-col items-center justify-center w-full  mt-16 mb-16  flex-1 px-20 text-center">

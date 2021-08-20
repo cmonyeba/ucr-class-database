@@ -11,7 +11,7 @@ const support = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <Head>
-                <title>Support Review UCR.</title>
+                <title>UCR Review Support</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

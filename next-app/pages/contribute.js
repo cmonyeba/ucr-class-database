@@ -7,7 +7,7 @@ const contribute = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <Head>
-            <title>Create Next App</title>
+            <title>Add UCR Review</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
     
