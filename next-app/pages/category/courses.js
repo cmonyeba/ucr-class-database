@@ -116,6 +116,7 @@ const courses = () => {
             <div className='flex flex-row'>
             <button  onClick={() => {sortArrayHigh('difficulty')}} className='mt-3 mx-2 font-bold rounded-md px-3 py-2 border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter high</button>
             <button  onClick={() => {sortArrayLow('difficulty')}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter low</button>
+            <button  onClick={() => {setFiltered(data)}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>reset</button>
             </div>
             <div className="flex flex-row flex-wrap justify-around max-w-7xl mt-4 sm:w-full">
                     <>
