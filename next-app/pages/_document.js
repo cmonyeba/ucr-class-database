@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from './lib/gtag'
+// import { GA_TRACKING_ID } from './lib/gtag'
 
 //add to every page?
 export default class MyDocument extends Document {
@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=G-6YLRWC7GM5`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
+            gtag('config', 'G-6YLRWC7GM5', {
               page_path: window.location.pathname,
             });
           `,
