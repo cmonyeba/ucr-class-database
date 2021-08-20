@@ -5,10 +5,10 @@ import Footer from '../components/Footer'
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
+      {/* <Head>
+        <title>Reviw UCR</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head> */}
 
       <main className="flex flex-col items-center justify-center w-full flex-1 mt-16 mb-16 px-20 text-center">
         <h1 className="text-6xl text-yellow-500 font-bold">
