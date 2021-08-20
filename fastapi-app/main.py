@@ -44,12 +44,23 @@ async def shutdown():
 # async def read_notes():
 #     query = reviews.select()
 #     return await database.fetch_all(query)
+from pydantic import BaseModel
+
+class Suggestions(BaseModel):
+    id: int
+    name: str
+
+    
+# @app.get("hello/{na/", response_model=List[Restroom])
+# async def get_suggestions(name: str):
+#     # Fetch multiple rows
+#     query = "SELECT DISTINCT(course) FROM reviews WHERE course like {name}%"
+#     return await database.fetch_all(query=query)
 
 @app.get("/category/restrooms/", response_model=List[Restroom])
 async def read_restrooms():
     query = restrooms.select()
     return await database.fetch_all(query)
-
 
 #REVIEWS BASED ON CLASS
 @app.get("/category/courses/{name}", response_model=List[Review])

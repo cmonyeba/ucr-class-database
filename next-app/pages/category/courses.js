@@ -11,13 +11,14 @@ const courses = () => {
 
     const [name, setName] = useState(" ");
     const [data, setData] = useState([])
+    const [filtered, setFiltered] = useState([])
+    const [reviewTool, setReviewTool] = useState(false)
 
     const handleInput = event => {
         setName(event.target.value.toUpperCase());
-        console.log(event.target.value)
+        console.log(event.target.value);
     };
 
-    
     
     const requestInput = () => {
         console.log(name);
@@ -25,6 +26,8 @@ const courses = () => {
         .then((result) => {
             console.log(result.data);
             setData(result.data);
+            setFiltered(result.data)
+            setReviewTool(!reviewTool)
     
         })
 
@@ -35,12 +38,47 @@ const courses = () => {
         });
     };
 
-    // const handleKeypress = e => {
-    //     //it triggers by pressing the enter key
-    //   if (e.keyCode === 13) {
-    //       console.log('hi')
-    //   }
-    // };
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+          requestInput()
+          console.log('input requested')
+      }
+    };
+
+    const sortArrayHigh = (type) => {
+        const types = {
+          difficulty: 'difficulty',
+        };
+        const sortProperty = types[type];
+       
+            const sorted = [...filtered].sort((a, b) => b[sortProperty] - a[sortProperty]);
+            console.log(sorted);
+            setFiltered(sorted);
+        
+        // if(tag = 'low'){
+        //     const sorted = [...filtered].sort((b, a) => b[sortProperty] - a[sortProperty]);
+        //     console.log(sorted);
+        //     setFiltered(sorted);
+        // }
+      };
+
+      const sortArrayLow = (type) => {
+        const types = {
+          difficulty: 'difficulty',
+        };
+        const sortProperty = types[type];
+       
+            const sorted = [...filtered].sort((a, b) => a[sortProperty] - b[sortProperty]);
+            console.log(sorted);
+            setFiltered(sorted);
+        
+        // if(tag = 'low'){
+        //     const sorted = [...filtered].sort((b, a) => b[sortProperty] - a[sortProperty]);
+        //     console.log(sorted);
+        //     setFiltered(sorted);
+        // }
+      };
 
     return (
         <div className="flex flex-wrap items-center justify-center min-h-screen py-2">
@@ -67,22 +105,32 @@ const courses = () => {
                 <code className="p-3 font-mono text-lg text-left bg-gray-100 rounded-md">
                     SELECT <input placeholder="EE100A" 
                                 onChange={handleInput}
+                                onKeyPressCapture={handleKeypress}
                                 className='uppercase'
                             /> <br/>FROM COURSES
                 </code>
-                <button  onClick={requestInput} className='m-2 font-bold rounded-md bg-yellow-500 px-3 py-2 hover:bg-yellow-600 active:bg-yellow-100'>Run</button>
+                <button  onClick={requestInput} className='m-2 font-bold rounded-md border-2 border-yellow-500 px-3 py-2 hover:bg-yellow-100 active:bg-yellow-100'>Run</button>
+            </div>
+            { reviewTool ? 
+            <>
+            <div className='flex flex-row'>
+            <button  onClick={() => {sortArrayHigh('difficulty')}} className='mt-3 mx-2 font-bold rounded-md px-3 py-2 border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter high</button>
+            <button  onClick={() => {sortArrayLow('difficulty')}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter low</button>
             </div>
             <div className="flex flex-row flex-wrap justify-around max-w-7xl mt-4 sm:w-full">
-
                     <>
-                        {data.map((data, dataId) => (
+                        {filtered.map((filtered) => (
                             <>
-                                <CourseCard data={data} key={dataId} />
+                                <CourseCard data={filtered} key={filtered.id} />
                             </>
                         ))}
                     </>
     
             </div>
+            </>
+            :
+            <div className='mt-16'>Try searching for a class!</div>
+            }
             </main>
     
             <Footer />
