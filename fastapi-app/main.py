@@ -20,7 +20,7 @@ engine = sqlalchemy.create_engine(
 
 app = FastAPI()
 
-origins= ['*']
+origins= ['https://www.reviewucr.com/category/courses/']
 
 app.add_middleware(
     CORSMiddleware,
@@ -50,12 +50,6 @@ class Suggestions(BaseModel):
     id: int
     name: str
 
-    
-# @app.get("hello/{na/", response_model=List[Restroom])
-# async def get_suggestions(name: str):
-#     # Fetch multiple rows
-#     query = "SELECT DISTINCT(course) FROM reviews WHERE course like {name}%"
-#     return await database.fetch_all(query=query)
 
 @app.get("/category/restrooms/", response_model=List[Restroom])
 async def read_restrooms():
@@ -63,7 +57,7 @@ async def read_restrooms():
     return await database.fetch_all(query)
 
 #REVIEWS BASED ON CLASS
-@app.get("/category/courses/{name}", response_model=List[Review])
+@app.get("/category/courses/", response_model=List[Review])
 async def read_course(name: str):
     query = reviews.select().where(reviews.c.course == name)
     return await database.fetch_all(query)

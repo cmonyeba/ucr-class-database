@@ -11,11 +11,11 @@ const FrontCard = ({ data, dataId }) => {
     }
 
     return (
-        <div key={dataId} className="m-3 text-left border w-72 h-auto lg:w-96 rounded-xl active:bg-blue-100 hover:text-blue-600 hover:border-blue-600">
+        <div key={dataId} className="m-3 text-left border w-80 h-auto lg:w-96 rounded-xl hover:text-blue-600 hover:border-blue-600 active:border-blue-600">
             <div className='flex flex-row justify-around py-3 px-1 items-center'>
                 <div>
                     <h3 className="text-2xl font-bold">{data.course}</h3>
-                    <p className=" text-xl">
+                    <p className=" text-l">
                         {data.quarter}
                     </p>
                     <p className="mt-4 break-all">

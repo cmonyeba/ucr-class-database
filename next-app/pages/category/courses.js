@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import axios from 'axios'
@@ -19,16 +19,17 @@ const courses = () => {
         console.log(event.target.value);
     };
 
-    
+    // `https://reviewucr.herokuapp.com/category/courses/`, { params: { name: name } }
     const requestInput = () => {
         console.log(name);
-        axios.get(`https://reviewucr.herokuapp.com/category/courses/${name}`)
+        axios.get(`https://reviewucr.herokuapp.com/category/courses/`, { params: { name: name } })
         .then((result) => {
             console.log(result.data);
             setData(result.data);
-            setFiltered(result.data)
-            setReviewTool(!reviewTool)
-    
+            setFiltered(result.data);
+            if (reviewTool === false){
+                setReviewTool(!reviewTool)
+            }
         })
 
         //if there is an error print error
@@ -55,12 +56,6 @@ const courses = () => {
             const sorted = [...filtered].sort((a, b) => b[sortProperty] - a[sortProperty]);
             console.log(sorted);
             setFiltered(sorted);
-        
-        // if(tag = 'low'){
-        //     const sorted = [...filtered].sort((b, a) => b[sortProperty] - a[sortProperty]);
-        //     console.log(sorted);
-        //     setFiltered(sorted);
-        // }
       };
 
       const sortArrayLow = (type) => {
@@ -111,27 +106,30 @@ const courses = () => {
                 </code>
                 <button  onClick={requestInput} className='m-2 font-bold rounded-md border-2 border-yellow-500 px-3 py-2 hover:bg-yellow-100 active:bg-yellow-100'>Run</button>
             </div>
-            { reviewTool ? 
+         
             <>
-            <div className='flex flex-row'>
-            <button  onClick={() => {sortArrayHigh('difficulty')}} className='mt-3 mx-2 font-bold rounded-md px-3 py-2 border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter high</button>
-            <button  onClick={() => {sortArrayLow('difficulty')}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter low</button>
-            <button  onClick={() => {setFiltered(data)}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>reset</button>
-            </div>
-            <div className="flex flex-row flex-wrap justify-around max-w-7xl mt-4 sm:w-full">
-                    <>
-                        {filtered.map((filtered) => (
-                            <>
-                                <CourseCard data={filtered} key={filtered.id} />
-                            </>
-                        ))}
-                    </>
-    
-            </div>
-            </>
-            :
-            <div className='mt-16'>Try searching for a class!</div>
-            }
+                { reviewTool ? 
+                <div className='flex flex-row'>
+                <button  onClick={() => {sortArrayHigh('difficulty')}} className='mt-3 mx-2 font-bold rounded-md px-3 py-2 border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter high</button>
+                <button  onClick={() => {sortArrayLow('difficulty')}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>filter low</button>
+                <button  onClick={() => {setFiltered(data)}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>reset</button>
+                </div> :
+                 <div className='mt-16'>Try searching for a class!</div>
+                }
+                <div className="flex flex-row flex-wrap justify-around max-w-7xl mt-4 sm:w-full">
+                        <>
+                            {filtered.map((filtered) => (
+                                <>
+                                    <CourseCard data={filtered} key={filtered.id} />
+                                </>
+                            ))}
+                        </>
+        
+                </div>
+                </>
+            
+           
+
             </main>
     
             <Footer />
