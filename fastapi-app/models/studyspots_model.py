@@ -13,6 +13,7 @@ from pydantic import BaseModel
 class StudySpot(BaseModel):
     id: int
     name: str
+    college: str
     noise: int
     seating: int
     comfortable: int

@@ -19,7 +19,6 @@ const courses = () => {
         console.log(event.target.value);
     };
 
-    // `https://reviewucr.herokuapp.com/category/courses/`, { params: { name: name } }
     const requestInput = () => {
         console.log(name);
         axios.get(`https://reviewucr.herokuapp.com/category/courses/`, { params: { name: name } })
@@ -68,11 +67,6 @@ const courses = () => {
             console.log(sorted);
             setFiltered(sorted);
         
-        // if(tag = 'low'){
-        //     const sorted = [...filtered].sort((b, a) => b[sortProperty] - a[sortProperty]);
-        //     console.log(sorted);
-        //     setFiltered(sorted);
-        // }
       };
 
     return (

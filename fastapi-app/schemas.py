@@ -22,6 +22,7 @@ study_spots = sqlalchemy.Table(
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column("name", sqlalchemy.String),
+    sqlalchemy.Column("college", sqlalchemy.String),
     sqlalchemy.Column("noise", sqlalchemy.Integer),
     sqlalchemy.Column("seating", sqlalchemy.Integer),
     sqlalchemy.Column("comfortable", sqlalchemy.Integer),

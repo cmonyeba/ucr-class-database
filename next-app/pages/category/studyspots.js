@@ -70,7 +70,7 @@ const studyspots = () => {
                                 <option value="ORBACH">ORBACH</option>
                                 <option value="HUB">HUB</option>
                                 <option value="RIVERA">RIVERA</option>
-                                <option value="LOT40">LOT 40</option>
+                                <option value="LOT 40">LOT 40</option>
                             </select> <br/>FROM STUDY_SPOTS
                 </code>
                 <button  onClick={requestInput} className='m-2 font-bold rounded-md bg-yellow-500 px-3 py-2 hover:bg-yellow-600 active:bg-yellow-100'>Run</button>

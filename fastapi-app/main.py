@@ -20,7 +20,8 @@ engine = sqlalchemy.create_engine(
 
 app = FastAPI()
 
-origins= ['https://www.reviewucr.com/category/courses/']
+origins= ['https://www.reviewucr.com',
+          'http://localhost:3000']
 
 app.add_middleware(
     CORSMiddleware,
