@@ -31,7 +31,7 @@ const dining = () => {
         //if there is an error print error
         .catch((error) => {
             console.log(error);
-            alert('error')
+            alert('Select a field.')
         });
     };
 

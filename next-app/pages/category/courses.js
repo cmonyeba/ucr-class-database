@@ -13,19 +13,26 @@ const courses = () => {
     const [data, setData] = useState([])
     const [filtered, setFiltered] = useState([])
     const [reviewTool, setReviewTool] = useState(false)
+    const [notFound, setNotFound] = useState(false)
 
     const handleInput = event => {
         setName(event.target.value.toUpperCase());
-        console.log(event.target.value);
+        console.log(event.target.value.toUpperCase());
     };
 
     const requestInput = () => {
         console.log(name);
         axios.get(`https://reviewucr.herokuapp.com/category/courses/`, { params: { name: name } })
         .then((result) => {
-            console.log(result.data);
+            console.log(result.data.length);
             setData(result.data);
             setFiltered(result.data);
+            if (result.data.length === 0 ){
+                setNotFound(!notFound)
+            }
+            if (result.data.length !== 0 && notFound){
+                setNotFound(!notFound)
+            }
             if (reviewTool === false){
                 setReviewTool(!reviewTool)
             }
@@ -34,7 +41,7 @@ const courses = () => {
         //if there is an error print error
         .catch((error) => {
             console.log(error);
-            alert('error')
+            alert('Select a field.')
         });
     };
 
@@ -42,7 +49,6 @@ const courses = () => {
         //it triggers by pressing the enter key
       if (e.key === 'Enter') {
           requestInput()
-          console.log('input requested')
       }
     };
 
@@ -109,6 +115,12 @@ const courses = () => {
                 <button  onClick={() => {setFiltered(data)}} className='mt-3 mx-2 font-bold rounded-md -500 px-3 py-2  border-2 hover:bg-yellow-100 active:bg-yellow-100'>reset</button>
                 </div> :
                  <div className='mt-16'>Try searching for a class!</div>
+                }
+                {
+                    notFound ? 
+                    <div className='mt-16'>Hmmm can't seem to find that class.<br/> If it exists be the first to make a review!</div>
+                    :
+                    <></>
                 }
                 <div className="flex flex-row flex-wrap justify-around max-w-7xl mt-4 sm:w-full">
                         <>

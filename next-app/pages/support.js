@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 const support = () => {
 
     const [change, setChange] = useState(true)
-    const [show, setShow] = useState(true)
+    // const [show, setShow] = useState(true)
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">

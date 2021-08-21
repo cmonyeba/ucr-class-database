@@ -14,9 +14,9 @@ const contribute = () => {
             <main className="flex flex-col items-center justify-center w-full flex-1 mt-16 mb-16 px-20 text-center">
             <h1 className="text-6xl text-yellow-500 font-bold">
                 ADD{' '}
-                <a className="text-blue-600" href="https://nextjs.org">
+                <span className="text-blue-600">
                 REVIEW
-                </a>
+                </span>
             </h1>
     
             <div className="flex flex-row flex-wrap-reverse justify-center items-center mt-5">
