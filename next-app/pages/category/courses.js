@@ -27,7 +27,7 @@ const courses = () => {
             console.log(result.data.length);
             setData(result.data);
             setFiltered(result.data);
-            if (result.data.length === 0 ){
+            if (result.data.length === 0 && !notFound ){
                 setNotFound(!notFound)
             }
             if (result.data.length !== 0 && notFound){

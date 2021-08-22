@@ -41,17 +41,6 @@ async def shutdown():
     await database.disconnect()
 
 
-# @app.get("/category/courses/", response_model=List[Review])
-# async def read_notes():
-#     query = reviews.select()
-#     return await database.fetch_all(query)
-from pydantic import BaseModel
-
-class Suggestions(BaseModel):
-    id: int
-    name: str
-
-
 @app.get("/category/restrooms/", response_model=List[Restroom])
 async def read_restrooms():
     query = restrooms.select()
