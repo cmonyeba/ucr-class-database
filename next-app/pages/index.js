@@ -28,9 +28,9 @@ export default function Home() {
     
           <Link href='review'>
             <a className="p-6 my-6 text-left border w-72 h-auto lg:w-96 rounded-xl active:bg-blue-100 border-blue-600 hover:text-blue-600">
-              <h3 className="text-2xl font-bold">Review &rarr;</h3>
+              <h3 className="text-2xl font-bold">Read &rarr;</h3>
               <p className="mt-7 text-xl">
-                Read riveting reviews on all aspects of UCR. 
+                Riveting reviews on all aspects of UCR. 
               </p>
             </a>
           </Link>

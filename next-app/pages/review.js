@@ -7,7 +7,7 @@ const review = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <Head>
-                <title>Add a review to review UCR</title>
+                <title>Add a UCR review</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
