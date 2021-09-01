@@ -1,1 +1,4 @@
-# ucr-database-front
+# ucr-database-database
+
+## Set Up
+- git clone 
